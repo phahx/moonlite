@@ -1,14 +1,52 @@
 ---
 layout: default
-title: Moonlite Updates Directory
+title: Updates Directory
 ---
+<!-- Load UI Dependencies via CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
 
-Here are the available files in this repository:
-
-<ul>
+<!-- 1. Extract and deduplicate folder names from files in /updates/ -->
+{% assign raw_folders = "" %}
 {% for file in site.static_files %}
-  <li>
-    <a href="{{ site.baseurl }}{{ file.path }}">{{ file.path | remove_first: "/" }}</a>
-  </li>
+  {% if file.path contains '/updates/' %}
+    <!-- Split the path: /updates/v1.2/file.zip becomes ["", "updates", "v1.2", "file.zip"] -->
+    {% assign parts = file.path | split: '/' %}
+    {% if parts.size >= 4 %}
+      {% assign folder_name = parts[2] %}
+      {% assign raw_folders = raw_folders | append: folder_name | append: "," %}
+    {% endif %}
+  {% endif %}
 {% endfor %}
-</ul>
+
+<!-- Split into an array, remove duplicates, and sort alphabetically -->
+{% assign unique_folders = raw_folders | split: "," | uniq | sort %}
+
+<!-- 2. Render the UI -->
+<div class="max-w-3xl mx-auto mt-10 p-4">
+  <h2 class="text-3xl font-bold mb-6 text-slate-800 flex items-center">
+    <i class="fa-solid fa-folder-tree text-primary mr-3"></i> Available Updates
+  </h2>
+
+  {% if unique_folders.size > 0 %}
+    <ul class="menu bg-base-200 rounded-box shadow-lg border border-base-300 p-2">
+      {% for folder in unique_folders %}
+        {% if folder != "" %}
+        <li class="mb-1">
+          <a href="{{ site.baseurl }}/updates/{{ folder }}/" class="text-lg py-4 hover:bg-base-300 transition-colors">
+            <i class="fa-solid fa-folder text-warning text-2xl mr-2"></i>
+            <span class="font-semibold text-base-content">{{ folder }}</span>
+            <i class="fa-solid fa-chevron-right ml-auto text-base-content/30 text-sm"></i>
+          </a>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="alert alert-warning shadow-lg">
+      <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+      <span>No folders found in the <strong>/updates/</strong> directory.</span>
+    </div>
+  {% endif %}
+</div>
