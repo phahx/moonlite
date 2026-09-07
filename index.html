@@ -1,25 +1,14 @@
 ---
-title: moonlite directory
+layout: default
+title: Moonlite Updates Directory
 ---
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Files in phahx/moonlite</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; max-width: 800px; margin: auto; }
-    li { margin-bottom: 0.5rem; }
-    a { text-decoration: none; color: #0969da; }
-    a:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-  <h1>Index of /moonlite</h1>
-  <ul>
-  {% for file in site.static_files %}
-    <li>
-      <a href="{{ site.baseurl }}{{ file.path }}">{{ file.path | remove_first: "/" }}</a>
-    </li>
-  {% endfor %}
-  </ul>
-</body>
-</html>
+
+Here are the available files in this repository:
+
+<ul>
+{% for file in site.static_files %}
+  <li>
+    <a href="{{ site.baseurl }}{{ file.path }}">{{ file.path | remove_first: "/" }}</a>
+  </li>
+{% endfor %}
+</ul>
