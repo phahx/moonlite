@@ -2,16 +2,13 @@
 layout: default
 title: Updates Directory
 ---
-<!-- Load UI Dependencies via CDN -->
+<!-- Load FontAwesome for icons, omitting Tailwind/DaisyUI to preserve Tactile -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/daisyui@3.1.0/dist/full.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
 
-<!-- 1. Extract and deduplicate folder names from files in /updates/ -->
+<!-- Extract and deduplicate folder names from files in /updates/ -->
 {% assign raw_folders = "" %}
 {% for file in site.static_files %}
   {% if file.path contains '/updates/' %}
-    <!-- Split the path: /updates/v1.2/file.zip becomes ["", "updates", "v1.2", "file.zip"] -->
     {% assign parts = file.path | split: '/' %}
     {% if parts.size >= 4 %}
       {% assign folder_name = parts[2] %}
@@ -20,33 +17,26 @@ title: Updates Directory
   {% endif %}
 {% endfor %}
 
-<!-- Split into an array, remove duplicates, and sort alphabetically -->
 {% assign unique_folders = raw_folders | split: "," | uniq | sort %}
 
-<!-- 2. Render the UI -->
-<div class="max-w-3xl mx-auto mt-10 p-4">
-  <h2 class="text-3xl font-bold mb-6 text-slate-800 flex items-center">
-    <i class="fa-solid fa-folder-tree text-primary mr-3"></i> Available Updates
-  </h2>
+<h2><i class="fa-solid fa-folder-tree" style="margin-right: 10px;"></i>Available Updates</h2>
 
-  {% if unique_folders.size > 0 %}
-    <ul class="menu bg-base-200 rounded-box shadow-lg border border-base-300 p-2">
-      {% for folder in unique_folders %}
-        {% if folder != "" %}
-        <li class="mb-1">
-          <a href="{{ site.baseurl }}/updates/{{ folder }}/" class="text-lg py-4 hover:bg-base-300 transition-colors">
-            <i class="fa-solid fa-folder text-warning text-2xl mr-2"></i>
-            <span class="font-semibold text-base-content">{{ folder }}</span>
-            <i class="fa-solid fa-chevron-right ml-auto text-base-content/30 text-sm"></i>
-          </a>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  {% else %}
-    <div class="alert alert-warning shadow-lg">
-      <i class="fa-solid fa-triangle-exclamation text-xl"></i>
-      <span>No folders found in the <strong>/updates/</strong> directory.</span>
-    </div>
-  {% endif %}
-</div>
+{% if unique_folders.size > 0 %}
+  <ul>
+    {% for folder in unique_folders %}
+      {% if folder != "" %}
+      <li style="margin-bottom: 10px;">
+        <i class="fa-solid fa-folder" style="color: #d4af37; margin-right: 8px;"></i>
+        <a href="{{ site.baseurl }}/updates/{{ folder }}/" style="font-weight: 600; text-decoration: none;">
+          {{ folder }}
+        </a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% else %}
+  <p style="background-color: #fff3cd; color: #856404; padding: 12px; border-radius: 4px; border: 1px solid #ffeeba;">
+    <i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i>
+    No folders found in the <strong>/updates/</strong> directory.
+  </p>
+{% endif %}
