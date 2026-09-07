@@ -5,11 +5,11 @@
     <description>Most recent changes with links to updates</description>
     <language>en</language>
     <item>
-      <title>MoonLite 1.0.4</title>
-      <pubDate>Mon, 07 Sep 2026 14:18:59 -04:00</pubDate>
-      <sparkle:version>1.0.4</sparkle:version>
-      <sparkle:shortVersionString>1.0.4</sparkle:shortVersionString>
-      <enclosure url="https://phahx.github.io/moonlite/updates/1.0.4/MoonLite-Setup-1.0.4.exe" sparkle:version="1.0.4" sparkle:shortVersionString="1.0.4" length="54209393" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="xD0u25lOne0fIFM5sfeYwdqSeodw0fGM7baSV+L/IykENQzigM82heyCoDrHc/TDwlT77tMxUqTKiggsP+EbDQ==" />
+      <title>MoonLite 1.0.5</title>
+      <pubDate>Mon, 07 Sep 2026 15:52:48 -04:00</pubDate>
+      <sparkle:version>1.0.5</sparkle:version>
+      <sparkle:shortVersionString>1.0.5</sparkle:shortVersionString>
+      <enclosure url="https://phahx.github.io/moonlite/updates/1.0.5/MoonLite-Setup-1.0.5.exe" sparkle:version="1.0.5" sparkle:shortVersionString="1.0.5" length="54212473" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="PmqBBsFWitTGjCbp2ZzIrXLkicBakLR951D3AB5R/+dWuXYFXaMPr9K8LS10f5k6yxL9F7zNuyTBXK/rXMdQBg==" />
     </item>
   </channel>
 </rss>
