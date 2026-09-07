@@ -16,7 +16,7 @@ title: Updates Directory
   {% endif %}
 {% endfor %}
 
-{% assign unique_folders = raw_folders | split: "," | uniq | sort %}
+{% assign unique_folders = raw_folders | split: "," | uniq | sort | reverse %}
 
 <h2><i class="fa-solid fa-folder-tree" style="margin-right: 10px;"></i>Available Updates</h2>
 

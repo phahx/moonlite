@@ -9,21 +9,21 @@
       <pubDate>Mon, 07 Sep 2026 13:55:51 -04:00</pubDate>
       <sparkle:version>1.0.3</sparkle:version>
       <sparkle:shortVersionString>1.0.3</sparkle:shortVersionString>
-      <enclosure url="https://phahx.github.io/moonlite/updates/MoonLite-Setup-1.0.3.exe" sparkle:version="1.0.3" sparkle:shortVersionString="1.0.3" length="54200567" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="QHDOdkbEqV2sorgy9GWlNoftVzFs2OaOgjPo1sJDJYpICr7L/Eqe3W9PE8OhSfVSYrPMRa7Nt3wWUuXoH45wCg==" />
+      <enclosure url="https://phahx.github.io/MoonLite/updates/1.0.3/MoonLite-Setup-1.0.3.exe" sparkle:version="1.0.3" sparkle:shortVersionString="1.0.3" length="54200567" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="QHDOdkbEqV2sorgy9GWlNoftVzFs2OaOgjPo1sJDJYpICr7L/Eqe3W9PE8OhSfVSYrPMRa7Nt3wWUuXoH45wCg==" />
     </item>
     <item>
       <title>MoonLite 1.0.2</title>
-      <pubDate>Mon, 07 Sep 2026 13:55:51 -04:00</pubDate>
+      <pubDate>Mon, 07 Sep 2026 13:35:56 -04:00</pubDate>
       <sparkle:version>1.0.2</sparkle:version>
       <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
-      <enclosure url="https://phahx.github.io/moonlite/updates/MoonLite-Setup-1.0.2.exe" sparkle:version="1.0.2" sparkle:shortVersionString="1.0.2" length="54209949" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="Y1z/PeN1tBqkz9oKOwgJUxFrb0sZOTyjfjOlGfQyqY9IszhNf9q9UQvVLJqG2p2UQIZARokosiJpeTLS1FuGAQ==" />
+      <enclosure url="https://phahx.github.io/MoonLite/updates/1.0.2/MoonLite-Setup-1.0.2.exe" sparkle:version="1.0.2" sparkle:shortVersionString="1.0.2" length="54209949" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="Y1z/PeN1tBqkz9oKOwgJUxFrb0sZOTyjfjOlGfQyqY9IszhNf9q9UQvVLJqG2p2UQIZARokosiJpeTLS1FuGAQ==" />
     </item>
     <item>
       <title>MoonLite 1.0.1</title>
-      <pubDate>Mon, 07 Sep 2026 13:55:51 -04:00</pubDate>
+      <pubDate>Mon, 07 Sep 2026 13:10:32 -04:00</pubDate>
       <sparkle:version>1.0.1</sparkle:version>
       <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
-      <enclosure url="https://phahx.github.io/moonlite/updates/MoonLite-Setup-1.0.1.exe" sparkle:version="1.0.1" sparkle:shortVersionString="1.0.1" length="54209951" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="1r/bpf1tnov6ILCHEWUVqM+cfqurNVoAoXYtmZt68edRMuZ5fPLaQ6SDpSdsTH+ya5jl1isqSJA0hlcPvqTEAw==" />
+      <enclosure url="https://phahx.github.io/MoonLite/updates/1.0.1/MoonLite-Setup-1.0.1.exe" sparkle:version="1.0.1" sparkle:shortVersionString="1.0.1" length="54203019" sparkle:os="windows" type="application/x-msdos-program" sparkle:criticalUpdate="false" sparkle:signature="yze1sSabtaNcgLevKbyDL1TWWWOpgu8vmismHGYnywYmhw7NHIxp6EA7Xlv1V4pNlAtsyKpcu4cucYWq161WCw==" />
     </item>
   </channel>
 </rss>
