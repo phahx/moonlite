@@ -32,9 +32,9 @@
                  {% assign latest_exe = file.path %}
               {% endif %}
             {% endfor %}
-            
+
             {% if latest_exe != "" %}
-              <a href="{{ site.baseurl }}{{ latest_exe }}" id="download-zip" class="button">
+              <a href="{{ site.baseurl }}{{ latest_exe }}" id="download-exe" class="button">
                 <span><i class="fa-brands fa-windows" style="margin-right: 6px;"></i> Download Latest</span>
               </a>
             {% endif %}
