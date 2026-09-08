@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<div class="mb-6">
+    <h2 class="text-2xl font-bold flex items-center border-b border-moonlite-border pb-4 mb-6">
+        <i data-lucide="list" class="w-6 h-6 mr-3 text-moonlite-accent"></i>
+        Available Updates
+    </h2>
+
+    <div class="space-y-3">
+        {% for post in site.posts %}
+        <!-- List Item Wrapper -->
+        <div class="bg-moonlite-card border border-transparent hover:border-moonlite-border rounded-lg p-3 pr-5 flex items-center group transition-colors hover:bg-moonlite-cardHover">
+
+            <!-- Main Area: Links to the Update/Changelog Page -->
+            <a href="{{ post.url | relative_url }}" class="flex items-center flex-1 cursor-pointer p-2">
+                <div class="{% if forloop.first %}text-moonlite-accent{% else %}text-moonlite-muted{% endif %} group-hover:text-white transition-colors mr-4">
+                    <i data-lucide="folder" class="w-6 h-6"></i>
+                </div>
+                <span class="text-lg font-semibold">{{ post.title }}</span>
+            </a>
+
+            <!-- Direct .exe Download Button -->
+            <a href="https://{{ site.github_username }}.github.io/moonlite/updates/{{ post.title }}/MoonLite-Setup-{{ post.title }}.exe"
+               class="text-moonlite-muted hover:text-white bg-[#333333] hover:bg-moonlite-accent transition-colors px-3 py-2 rounded flex items-center text-sm font-semibold mr-4 shadow-sm"
+               title="Direct Download .exe">
+                <img src="{{ '/assets/images/exe-icon.png' | relative_url }}" alt="Download" class="w-5 h-5 mr-3 object-contain">
+                direct
+            </a>
+
+            <!-- Chevron: Links to the Update/Changelog Page -->
+            <a href="{{ post.url | relative_url }}" class="flex items-center">
+                <i data-lucide="chevron-right" class="w-5 h-5 text-moonlite-muted group-hover:text-white transition-colors"></i>
+            </a>
+
+        </div>
+        {% else %}
+        <p class="text-moonlite-muted p-4 bg-moonlite-card rounded-lg border border-moonlite-border text-center">
+            No updates are currently available.
+        </p>
+        {% endfor %}
+    </div>
+</div>
