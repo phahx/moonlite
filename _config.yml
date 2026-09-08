@@ -2,7 +2,10 @@ title: MoonLite
 description: Hosted updates for MoonLite, a Vintage Story Mod Launcher
 github_username: phahx
 theme_accent: "#F47B49"
-latest_download_link: "https://github.com/phahx/moonlite/releases/latest"
+url: https://phahx.github.io
+baseurl: /moonlite
+future: true
+timezone: America/New_York
 defaults:
   - scope:
       path: ""

@@ -1,0 +1,29 @@
+{% assign latest_exe_path = "" %}
+{% assign latest_exe_version = "0.0.0" %}
+{% for file in site.static_files %}
+  {% if file.path contains '/updates/' and file.extname == '.exe' %}
+    {% assign cand = file.name | remove: 'MoonLite-Setup-' | remove: '.exe' %}
+    {% assign a = cand | split: '.' %}
+    {% assign b = latest_exe_version | split: '.' %}
+    {% assign a0 = a[0] | plus: 0 %}
+    {% assign a1 = a[1] | plus: 0 %}
+    {% assign a2 = a[2] | plus: 0 %}
+    {% assign b0 = b[0] | plus: 0 %}
+    {% assign b1 = b[1] | plus: 0 %}
+    {% assign b2 = b[2] | plus: 0 %}
+    {% assign newer = false %}
+    {% if a0 > b0 %}
+      {% assign newer = true %}
+    {% elsif a0 == b0 %}
+      {% if a1 > b1 %}
+        {% assign newer = true %}
+      {% elsif a1 == b1 and a2 > b2 %}
+        {% assign newer = true %}
+      {% endif %}
+    {% endif %}
+    {% if newer %}
+      {% assign latest_exe_version = cand %}
+      {% assign latest_exe_path = file.path %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
