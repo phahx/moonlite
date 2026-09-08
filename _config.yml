@@ -1,5 +1,5 @@
-title: MoonLite Updates
+title: MoonLite
 description: Hosted updates for MoonLite, a Vintage Story Mod Launcher
-show_downloads: true
-google_analytics:
-theme: jekyll-theme-tactile
+github_username: phahx
+theme_accent: "#F47B49"
+latest_download_link: "https://github.com/phahx/moonlite/releases/latest"

@@ -1,59 +1,46 @@
 ---
 layout: default
-title: MoonLite
 ---
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<!-- Extract and deduplicate folder names from files in /updates/ -->
-{% assign raw_folders = "" %}
-{% for file in site.static_files %}
-  {% if file.path contains '/updates/' %}
-    {% assign parts = file.path | split: '/' %}
-    {% if parts.size >= 4 %}
-      {% assign folder_name = parts[2] %}
-      {% assign raw_folders = raw_folders | append: folder_name | append: "," %}
-    {% endif %}
-  {% endif %}
-{% endfor %}
+<!-- Header -->
+<div class="text-center mb-10">
+    <h1 class="text-4xl font-bold tracking-wide mb-3">{{ site.title }}</h1>
+    <p class="text-moonlite-muted text-lg">{{ site.description }}</p>
+</div>
 
-{% assign unique_folders = raw_folders | split: "," | uniq | sort | reverse %}
+<!-- Call to Action -->
+<div class="flex justify-center mb-14">
+    <a href="{{ site.latest_download_link }}" class="bg-moonlite-accent hover:bg-moonlite-accentHover text-white px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wide flex items-center shadow-lg transition-colors active:scale-[0.99]">
+        <i data-lucide="download" class="w-6 h-6 mr-3"></i>
+        Download Latest
+    </a>
+</div>
 
-<h2><i class="fa-solid fa-folder-tree" style="margin-right: 10px;"></i>Available Updates</h2>
+<!-- Dynamic Updates List -->
+<div class="mb-6">
+    <h2 class="text-2xl font-bold flex items-center border-b border-moonlite-border pb-4 mb-6">
+        <i data-lucide="list" class="w-6 h-6 mr-3 text-moonlite-accent"></i>
+        Available Updates
+    </h2>
 
-{% if unique_folders.size > 0 %}
-  <div style="margin-top: 20px;">
-    {% for folder in unique_folders %}
-      {% if folder != "" %}
+    <div class="space-y-3">
+        <!-- Liquid Loop: Iterates through Jekyll posts (e.g., version releases) -->
+        {% for post in site.posts %}
+        <a href="{{ post.url | relative_url }}" class="bg-moonlite-card border border-transparent hover:border-moonlite-border rounded-lg p-5 flex items-center cursor-pointer hover:bg-moonlite-cardHover transition-colors group">
 
-      <!-- Native HTML Accordion for each folder -->
-      <details style="margin-bottom: 12px; background: rgba(0,0,0,0.03); padding: 12px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.1);">
-        <summary style="cursor: pointer; font-weight: 600; list-style: none; display: flex; align-items: center;">
-          <i class="fa-solid fa-folder" style="color: #d4af37; margin-right: 10px; font-size: 1.2em;"></i>
-          {{ folder }}
-        </summary>
+            <!-- Highlights the folder icon for the most recent post -->
+            <div class="{% if forloop.first %}text-moonlite-accent{% else %}text-moonlite-muted{% endif %} group-hover:text-white transition-colors mr-4">
+                <i data-lucide="folder" class="w-6 h-6"></i>
+            </div>
 
-        <!-- Loop to find files specifically in this folder -->
-        <ul style="margin-top: 12px; margin-bottom: 0; padding-left: 30px;">
-          {% assign current_folder_path = '/updates/' | append: folder | append: '/' %}
-          {% for file in site.static_files %}
-            {% if file.path contains current_folder_path %}
-              <li style="margin-bottom: 6px;">
-                <i class="fa-solid fa-file-arrow-down" style="color: #666; margin-right: 8px;"></i>
-                <a href="{{ site.baseurl }}{{ file.path }}" style="text-decoration: none;">
-                  {{ file.name }}
-                </a>
-              </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </details>
-
-      {% endif %}
-    {% endfor %}
-  </div>
-{% else %}
-  <p style="background-color: #fff3cd; color: #856404; padding: 12px; border-radius: 4px; border: 1px solid #ffeeba;">
-    <i class="fa-solid fa-triangle-exclamation" style="margin-right: 8px;"></i>
-    No folders found in the <strong>/updates/</strong> directory.
-  </p>
-{% endif %}
+            <span class="text-lg font-semibold flex-1">{{ post.title }}</span>
+            <i data-lucide="chevron-right" class="w-5 h-5 text-moonlite-muted group-hover:text-white transition-colors"></i>
+        </a>
+        {% else %}
+        <!-- Fallback if no posts exist -->
+        <p class="text-moonlite-muted p-4 bg-moonlite-card rounded-lg border border-moonlite-border text-center">
+            No updates are currently available.
+        </p>
+        {% endfor %}
+    </div>
+</div>
