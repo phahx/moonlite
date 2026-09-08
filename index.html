@@ -2,21 +2,6 @@
 layout: default
 ---
 
-<!-- Header -->
-<div class="text-center mb-10">
-    <h1 class="text-4xl font-bold tracking-wide mb-3">{{ site.title }}</h1>
-    <p class="text-moonlite-muted text-lg">{{ site.description }}</p>
-</div>
-
-<!-- Call to Action -->
-<div class="flex justify-center mb-14">
-    <a href="{{ site.latest_download_link }}" class="bg-moonlite-accent hover:bg-moonlite-accentHover text-white px-8 py-4 rounded-lg font-bold text-lg uppercase tracking-wide flex items-center shadow-lg transition-colors active:scale-[0.99]">
-        <i data-lucide="download" class="w-6 h-6 mr-3"></i>
-        Download Latest
-    </a>
-</div>
-
-<!-- Dynamic Updates List -->
 <div class="mb-6">
     <h2 class="text-2xl font-bold flex items-center border-b border-moonlite-border pb-4 mb-6">
         <i data-lucide="list" class="w-6 h-6 mr-3 text-moonlite-accent"></i>
@@ -24,20 +9,33 @@ layout: default
     </h2>
 
     <div class="space-y-3">
-        <!-- Liquid Loop: Iterates through Jekyll posts (e.g., version releases) -->
         {% for post in site.posts %}
-        <a href="{{ post.url | relative_url }}" class="bg-moonlite-card border border-transparent hover:border-moonlite-border rounded-lg p-5 flex items-center cursor-pointer hover:bg-moonlite-cardHover transition-colors group">
+        <!-- List Item Wrapper -->
+        <div class="bg-moonlite-card border border-transparent hover:border-moonlite-border rounded-lg p-3 pr-5 flex items-center group transition-colors hover:bg-moonlite-cardHover">
 
-            <!-- Highlights the folder icon for the most recent post -->
-            <div class="{% if forloop.first %}text-moonlite-accent{% else %}text-moonlite-muted{% endif %} group-hover:text-white transition-colors mr-4">
-                <i data-lucide="folder" class="w-6 h-6"></i>
-            </div>
+            <!-- Main Area: Links to the Update/Changelog Page -->
+            <a href="{{ post.url | relative_url }}" class="flex items-center flex-1 cursor-pointer p-2">
+                <div class="{% if forloop.first %}text-moonlite-accent{% else %}text-moonlite-muted{% endif %} group-hover:text-white transition-colors mr-4">
+                    <i data-lucide="folder" class="w-6 h-6"></i>
+                </div>
+                <span class="text-lg font-semibold">{{ post.title }}</span>
+            </a>
 
-            <span class="text-lg font-semibold flex-1">{{ post.title }}</span>
-            <i data-lucide="chevron-right" class="w-5 h-5 text-moonlite-muted group-hover:text-white transition-colors"></i>
-        </a>
+            <!-- Direct .exe Download Button -->
+            <a href="https://{{ site.github_username }}.github.io/moonlite/updates/{{ post.title }}/MoonLite-Setup-{{ post.title }}.exe"
+               class="text-moonlite-muted hover:text-white bg-[#333333] hover:bg-moonlite-accent transition-colors px-3 py-2 rounded flex items-center text-sm font-semibold mr-4 shadow-sm"
+               title="Direct Download .exe">
+                <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                .exe
+            </a>
+
+            <!-- Chevron: Links to the Update/Changelog Page -->
+            <a href="{{ post.url | relative_url }}" class="flex items-center">
+                <i data-lucide="chevron-right" class="w-5 h-5 text-moonlite-muted group-hover:text-white transition-colors"></i>
+            </a>
+
+        </div>
         {% else %}
-        <!-- Fallback if no posts exist -->
         <p class="text-moonlite-muted p-4 bg-moonlite-card rounded-lg border border-moonlite-border text-center">
             No updates are currently available.
         </p>
