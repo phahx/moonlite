@@ -1,0 +1,18 @@
+---
+layout: default
+---
+
+<!-- Back Button -->
+<a href="{{ '/' | relative_url }}" class="inline-flex items-center text-moonlite-accent hover:text-moonlite-accentHover mb-6 font-semibold transition-colors">
+    <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Back to Updates
+</a>
+
+<!-- Post Content Container -->
+<div class="bg-moonlite-card rounded-lg p-8 border border-moonlite-border mb-6">
+    <h2 class="text-2xl font-bold mb-6 border-b border-moonlite-border pb-4">Update {{ page.title }}</h2>
+
+    <!-- This is where your Markdown gets injected -->
+    <div class="space-y-4 text-gray-300">
+        {{ content }}
+    </div>
+</div>
